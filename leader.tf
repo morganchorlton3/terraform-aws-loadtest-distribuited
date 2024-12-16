@@ -39,7 +39,10 @@ resource "aws_instance" "leader" {
 
   tags = merge(
     var.tags,
-    var.leader_tags
+    var.leader_tags,
+    {
+      "Name": "${var.name} Leader"
+    }
   )
 }
 

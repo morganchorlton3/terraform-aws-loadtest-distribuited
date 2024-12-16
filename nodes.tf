@@ -51,7 +51,10 @@ resource "aws_instance" "nodes" {
 
   tags = merge(
     var.tags,
-    var.nodes_tags
+    var.nodes_tags,
+    {
+      "Name": "${var.name} Node ${count.index}"
+    }
   )
 }
 
